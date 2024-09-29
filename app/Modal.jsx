@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 //import styles from './style.module.css';
 import gsap from 'gsap';
-import Image1 from "../app/image/c2montreal.png"
+import Image1 from "../app/image/rest.png"
 import Image2 from "../app/image/locomotive.png"
 import Image3 from "../app/image/officestudio.png"
 import Image4 from "../app/image/silencio.png"
@@ -16,7 +16,7 @@ const scaleAnimation = {
 
 const projects = [
   {
-    title: "C2 Montreal",
+    title: "rest",
     src: Image1,
     color: "#000000"
   },
