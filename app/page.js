@@ -10,7 +10,7 @@ import { SiSolidity } from "react-icons/si";
 import { RiNextjsLine, RiTwitterXFill, RiDownloadLine } from "react-icons/ri";
 import { FaPython, FaGithub, FaReact, FaLinkedin } from "react-icons/fa";
 import { CiMail } from "react-icons/ci"
-import Image1 from "../app/image/c2montreal.png"
+import Image1 from "../app/image/rest.png"
 import Image2 from "../app/image/locomotive.png"
 import Image3 from "../app/image/officestudio.png"
 import Image4 from "../app/image/silencio.png"
@@ -18,7 +18,6 @@ import Modal from "./Modal"
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import Loader from "./Loader";
 gsap.registerPlugin(useGSAP);
 
 
