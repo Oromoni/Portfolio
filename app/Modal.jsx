@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 //import styles from './style.module.css';
 import gsap from 'gsap';
-import Image1 from "../app/image/rest.png"
-import Image2 from "../app/image/locomotive.png"
-import Image3 from "../app/image/officestudio.png"
-import Image4 from "../app/image/silencio.png"
+// import Image1 from "../app/image/rest.png"
+// import Image2 from "../app/image/locomotive.png"
+// import Image3 from "../app/image/officestudio.png"
+// import Image4 from "../app/image/silencio.png"
 
 const scaleAnimation = {
     initial: {scale: 0, x:"-50%", y:"-50%"},
@@ -14,31 +14,30 @@ const scaleAnimation = {
     closed: {scale: 0, x:"-50%", y:"-50%", transition: {duration: 0.4, ease: [0.32, 0, 0.67, 0]}}
 }
 
-const projects = [
-  {
-    title: "rest",
-    src: Image1,
-    color: "#000000"
-  },
-  {
-    title: "Office Studio",
-    src: Image3,
-    color: "#8C8C8C"
-  },
-  {
-    title: "Locomotive",
-    src: Image2,
-    color: "#EFE8D3"
-  },
-  {
-    title: "Silencio",
-    src: Image4,
-    color: "#706D63"
-  }
+const projects = [{
+        title: "Defi Bank",
+        src: "/rest.png",
+        color: "#000000"
+    },
+    {
+        title: "NHS",
+        src: "/../public/locomotive.png",
+        color: "#8C8C8C"
+    },
+    {
+        title: "Web3",
+        src: "/../public/officestudio.png",
+        color: "#EFE8D3"
+    },
+    {
+        title: "Rango",
+        src: "/../public/silencio.png",
+        color: "#706D63"
+    }
 ]
 
 
-export default function Index({modal, projects}) {
+const Modal=({modal, projects})=> {
 
   const { active, index } = modal;
   const modalContainer = useRef(null);
@@ -93,3 +92,5 @@ export default function Index({modal, projects}) {
     </>
   )
 }
+
+export default Modal

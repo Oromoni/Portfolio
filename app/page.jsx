@@ -10,10 +10,10 @@ import { SiSolidity } from "react-icons/si";
 import { RiNextjsLine, RiTwitterXFill, RiDownloadLine } from "react-icons/ri";
 import { FaPython, FaGithub, FaReact, FaLinkedin } from "react-icons/fa";
 import { CiMail } from "react-icons/ci"
-import Image1 from "../app/image/rest.png"
-import Image2 from "../app/image/locomotive.png"
-import Image3 from "../app/image/officestudio.png"
-import Image4 from "../app/image/silencio.png"
+// import Image1 from "../app/image/rest.png"
+// import Image2 from "../app/image/locomotive.png"
+// import Image3 from "../app/image/officestudio.png"
+// import Image4 from "../app/image/silencio.png"
 import Modal from "./Modal"
 import { useRef } from 'react';
 import gsap from 'gsap';
@@ -25,22 +25,22 @@ gsap.registerPlugin(useGSAP);
 
 const projects = [{
         title: "Defi Bank",
-        src: Image1,
+        src: "/rest.png",
         color: "#000000"
     },
     {
         title: "NHS",
-        src: Image3,
+        src: "/locomotive.png",
         color: "#8C8C8C"
     },
     {
         title: "Web3",
-        src: Image2,
+        src: "/officestudio.png",
         color: "#EFE8D3"
     },
     {
         title: "Rango",
-        src: Image4,
+        src: "/silencio.png",
         color: "#706D63"
     }
 ]
