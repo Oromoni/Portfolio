@@ -63,19 +63,13 @@ const ThreeScene = () => {
         window.addEventListener('resize', handleResize);
 
         let mouseDown = false;
-        let touchActive = false;
-        let rgb = [];
 
         // Mouse events
         window.addEventListener('mousedown', () => (mouseDown = true));
         window.addEventListener('mouseup', () => (mouseDown = false));
 
-        // Touch events
-        window.addEventListener('touchstart', () => (touchActive = true));
-        window.addEventListener('touchend', () => (touchActive = false));
-
         const handleColorChange = (x, y) => {
-            rgb = [
+            const rgb = [
                 Math.round((x / window.innerWidth) * 255),
                 Math.round((y / window.innerHeight) * 255),
                 getRandomNumber(150, 250),
@@ -94,18 +88,22 @@ const ThreeScene = () => {
             }
         });
 
-        window.addEventListener('touchmove', (e) => {
-            if (touchActive) {
-                const touch = e.touches[0]; // Get the first touch point
-                handleColorChange(touch.clientX, touch.clientY);
-            }
-        });
+        // Removed touch events to disable color change on mobile
+        // window.addEventListener('touchstart', () => (touchActive = true));
+        // window.addEventListener('touchend', () => (touchActive = false));
+        // window.addEventListener('touchmove', (e) => {
+        //     if (touchActive) {
+        //         const touch = e.touches[0]; // Get the first touch point
+        //         handleColorChange(touch.clientX, touch.clientY);
+        //     }
+        // });
 
         return () => {
             const currentRef = mountRef.current; 
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', () => {});
-            window.removeEventListener('touchmove', () => {});
+            // Clean up touch events as they are no longer needed
+            // window.removeEventListener('touchmove', () => {});
             if (currentRef && renderer.domElement) {
                 currentRef.removeChild(renderer.domElement);
             }

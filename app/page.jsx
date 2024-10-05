@@ -179,9 +179,9 @@ style: { backgroundColor: '#030f08', color: 'white' },
 </a>
         </div>
 
-        <div ref={nameRef} className="bottom-[11%] left-[16%] md:left-[38%] absolute text-center text-white/80 flex flex-col items-center justify-center">
+        <div ref={nameRef} className="bottom-[11%] absolute w-full mx-auto text-center text-white/80 flex flex-col items-center justify-center">
           <h4 className="text-sm tracking-wide translate-y-5 opacity-0 mt-1"> A FULL STACK WEB3 </h4>
-          <h2 className="text-4xl font-semibold translate-y-5 opacity-0 mt-2 tracking-wider"> COLLINS OROMONI </h2>
+          <h2 className="text-2xl md:text-4xl font-semibold translate-y-5 opacity-0 mt-2 tracking-wider"> COLLINS OROMONI </h2>
           <h6 className="mt-3 tracking-widest translate-y-5 opacity-0 text-[#584219] font-semibold"> CREATIVE DEVELOPER </h6>
           <div className="mt-3 tracking-widest translate-y-5 opacity-0 text-white/30 hover:text-white hover:translate-y-1 hover:transition-all">
             <RiDownloadLine size={25} />
