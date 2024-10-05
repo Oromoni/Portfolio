@@ -1,3 +1,4 @@
+"use client"
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -21,18 +22,18 @@ const projects = [{
     },
     {
         title: "NHS",
-        src: "/../public/locomotive.png",
-        color: "#8C8C8C"
+        src: "/bank.png",
+        color: "#FFFFFF"
     },
     {
         title: "Web3",
-        src: "/../public/officestudio.png",
-        color: "#EFE8D3"
+        src: "/fizzi.png",
+        color: "#000000"
     },
     {
         title: "Rango",
-        src: "/../public/silencio.png",
-        color: "#706D63"
+        src: "/nhs.png",
+        color: "#FFFFFF"
     }
 ]
 
@@ -68,7 +69,7 @@ const Modal=({modal, projects})=> {
 
   return (
     <>
-        <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className="h-[300px] w-[350px] rounded-2xl absolute bg-white overflow-hidden pointer-events-none flex items-center justify-center">
+        <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className="h-[230px] w-[350px] rounded-2xl absolute bg-white overflow-hidden pointer-events-none flex items-center justify-center">
             <div style={{top: index * -100 + "%"}} className="h-[100%] w-[100%] absolute transition-[top 0.5s cubic-bezier(0.76, 0, 0.24, 1)]">
             { 
                 projects.map( (project, index) => {
@@ -86,9 +87,9 @@ const Modal=({modal, projects})=> {
 
             </div>
         </motion.div>
-        <motion.div ref={cursor} className="w-[80px] h-[80px] rounded-[50%] bg-white/65 text-black/80 absolute z-10 flex items-center justify-center text-sm font-light pointer-events-none" variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}></motion.div>
+        {/* <motion.div ref={cursor} className="w-[80px] h-[80px] rounded-[50%] bg-white/65 text-black/80 absolute z-10 flex items-center justify-center text-sm font-light pointer-events-none" variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}></motion.div>
         <motion.div ref={cursorLabel} className="bg-transparent font-semibold w-[80px] h-[80px] rounded-[50%] bg-[#455CE9]  absolute z-10 text-black flex items-center justify-center text-sm  pointer-events-none" variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"}>View</motion.div>
-  
+   */}
     </>
   )
 }

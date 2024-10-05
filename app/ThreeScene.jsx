@@ -1,8 +1,8 @@
-"use client"; // Ensure this component runs on the client side
+import dynamic from 'next/dynamic';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 
 const ThreeScene = () => {
     const mountRef = useRef(null);
@@ -10,10 +10,9 @@ const ThreeScene = () => {
     const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
     useEffect(() => {
-        // Ensure the mountRef is defined
-        if (!mountRef.current) return;
+        // Ensure this only runs on the client
+        if (typeof window === 'undefined') return;
 
-        // Create the scene
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 100);
         camera.position.z = 25;
@@ -61,38 +60,57 @@ const ThreeScene = () => {
             renderer.setSize(window.innerWidth, window.innerHeight);
         };
 
-        window.addEventListener("resize", handleResize);
+        window.addEventListener('resize', handleResize);
 
         let mouseDown = false;
+        let touchActive = false;
         let rgb = [];
-        window.addEventListener("mousedown", () => (mouseDown = true));
-        window.addEventListener("mouseup", () => (mouseDown = false));
 
-        window.addEventListener("mousemove", (e) => {
+        // Mouse events
+        window.addEventListener('mousedown', () => (mouseDown = true));
+        window.addEventListener('mouseup', () => (mouseDown = false));
+
+        // Touch events
+        window.addEventListener('touchstart', () => (touchActive = true));
+        window.addEventListener('touchend', () => (touchActive = false));
+
+        const handleColorChange = (x, y) => {
+            rgb = [
+                Math.round((x / window.innerWidth) * 255),
+                Math.round((y / window.innerHeight) * 255),
+                getRandomNumber(150, 250),
+            ];
+            const newColor = new THREE.Color(`rgb(${rgb.join(',')})`);
+            gsap.to(sphere.material.color, {
+                r: newColor.r,
+                g: newColor.g,
+                b: newColor.b,
+            });
+        };
+
+        window.addEventListener('mousemove', (e) => {
             if (mouseDown) {
-                rgb = [
-                    Math.round((e.pageX / window.innerWidth) * 255),
-                    Math.round((e.pageY / window.innerHeight) * 255),
-                    getRandomNumber(150, 250),
-                ];
-                const newColor = new THREE.Color(`rgb(${rgb.join(",")})`);
-                gsap.to(sphere.material.color, {
-                    r: newColor.r,
-                    g: newColor.g,
-                    b: newColor.b,
-                });
+                handleColorChange(e.pageX, e.pageY);
             }
         });
 
-        // Cleanup function
+        window.addEventListener('touchmove', (e) => {
+            if (touchActive) {
+                const touch = e.touches[0]; // Get the first touch point
+                handleColorChange(touch.clientX, touch.clientY);
+            }
+        });
+
         return () => {
-            const currentRef = mountRef.current; // Copy the reference
-            window.removeEventListener("resize", handleResize);
+            const currentRef = mountRef.current; 
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('mousemove', () => {});
+            window.removeEventListener('touchmove', () => {});
             if (currentRef && renderer.domElement) {
                 currentRef.removeChild(renderer.domElement);
             }
         };
-    }, []); // Ensure empty dependency array
+    }, []);
 
     return (
         <div
@@ -106,4 +124,9 @@ const ThreeScene = () => {
     );
 };
 
-export default ThreeScene;
+// Use dynamic import for client-side rendering
+const DynamicThreeScene = dynamic(() => Promise.resolve(ThreeScene), {
+    ssr: false, // Disable server-side rendering
+});
+
+export default DynamicThreeScene;
