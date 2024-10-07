@@ -28,7 +28,7 @@ const projects = [
     title: "Defi Bank",
     src: "/rest.png",
     color: "#000000",
-    link: "https://www.google.com/",
+    link: "https://resta-ldn.vercel.app/",
     stack: [
       <FaPython key="1" size={25} />,
       <FaReact key="2" size={25} />,
