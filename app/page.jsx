@@ -159,7 +159,7 @@ export default function Home() {
           <h2 className="text-lg md:text-2xl lg:text-4xl font-semibold translate-y-5 opacity-0 mt-2 tracking-widest">
             COLLINS OROMONI
           </h2>
-          <h6 className="mt-0.5 md:mt-3 tracking-widest translate-y-5 opacity-0 text-[#584219] font-semibold">
+          <h6 className="mt-0.5 md:mt-3 tracking-widest translate-y-5 opacity-0 text-[#584219] font-semibold text-xs md:text-base">
             CREATIVE DEVELOPER
           </h6>
           <a
