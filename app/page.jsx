@@ -47,7 +47,7 @@ const projects = [
     title: "Chow",
     src: "/nhs.png",
     color: "#FFFFFF",
-    link: "https://www.unsplash.com/",
+    link: "github.com",
     stack: [<FaPython key="1" size={25} />, <FaPython key="2" size={25} />, <RiNextjsLine key="3" size={25} />],
   },
 ];
@@ -159,14 +159,14 @@ export default function Home() {
           <h2 className="text-2xl md:text-4xl font-semibold translate-y-5 opacity-0 mt-2 tracking-widest">
             COLLINS OROMONI
           </h2>
-          <h6 className="mt-3 tracking-widest translate-y-5 opacity-0 text-[#584219] font-semibold">
+          <h6 className="mt-0.5 md:mt-3 tracking-widest translate-y-5 opacity-0 text-[#584219] font-semibold">
             CREATIVE DEVELOPER
           </h6>
           <a
             href="/bosscv.pdf"
             download
             onClick={() => toast.success("CV Downloaded!", { position: "top-right", autoClose: 3000, hideProgressBar: true, closeOnClick: true, draggable: true, pauseOnHover: true, style: { backgroundColor: "#030f08", color: "white" } })}
-            className="mt-3 tracking-widest translate-y-5 opacity-0 text-white/30 hover:text-white hover:translate-y-1 hover:transition-all"
+            className="mt-0.5 md:mt-3 tracking-widest translate-y-5 opacity-0 text-white/30 hover:text-white hover:translate-y-1 hover:transition-all"
           >
             <RiDownloadLine size={25} />
           </a>
