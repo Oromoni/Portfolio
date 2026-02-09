@@ -40,14 +40,14 @@ const projects = [
     title: "Lux Estate",
     src: "/dubai.png",
     color: "#000000",
-    link: "https://www.twitter.com/",
+    link: "https://realestate-y9z1.vercel.app/",
     stack: [<FaPython key="1" size={25} />, <RiNextjsLine key="2" size={25} />, <FaPython key="3" size={25} />],
   },
   {
-    title: "Chow",
-    src: "/nhs.png",
+    title: "Ecommerce",
+    src: "/ecom.png",
     color: "#FFFFFF",
-    link: "github.com",
+    link: "https://luxvi.vercel.app/",
     stack: [<FaPython key="1" size={25} />, <FaPython key="2" size={25} />, <RiNextjsLine key="3" size={25} />],
   },
 ];
