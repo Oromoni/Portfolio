@@ -46,7 +46,7 @@ const projects = [
   {
     title: "Ecommerce",
     src: "/ecom.png",
-    color: "#FFFFFF",
+    color: "#000000",
     link: "https://luxvi.vercel.app/",
     stack: [<FaPython key="1" size={25} />, <FaPython key="2" size={25} />, <RiNextjsLine key="3" size={25} />],
   },
